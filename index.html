@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>NANDA KUMAR G | UI/UX Designer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -19,16 +19,85 @@
             color: var(--text-color);
             background-color: var(--light-color);
             margin: 0;
+            padding: 0;
         }
         .navbar {
             background-color: var(--primary-color);
             padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .navbar .logo, .navbar nav a {
+        .navbar .logo {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+        .navbar nav {
+            display: flex;
+        }
+        .navbar nav a {
             color: var(--light-color);
             text-decoration: none;
             margin: 0 1em;
         }
+
+        /* Hamburger menu */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            margin: 4px 0;
+            background-color: var(--light-color);
+        }
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .navbar .nav-links a {
+            margin: 0 1em;
+            text-align: center;
+        }
+
+        /* Show the navbar items on click */
+        .navbar .nav-links.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: var(--primary-color);
+            width: 200px;
+            text-align: right;
+            padding: 1em;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .navbar nav {
+                display: none;
+            }
+            .navbar .menu-icon {
+                display: flex;
+            }
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar .nav-links a {
+                padding: 1em;
+                border-top: 1px solid #fff;
+            }
+        }
+
+        /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
@@ -69,18 +138,20 @@
 
     <!-- Navbar -->
     <header class="navbar">
-        <div class="container">
-            <a href="#home" class="logo">HOME</a>
-            
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills-tools">Skills&Tools</a>
-                <a href="#certificates">Certificates</a>
-                <a href="#contact">Contact</a>
-                <a href="https://drive.google.com/file/d/1XPJOjxBV5fBi5SXkoO9J4uHeJM_0-FRk/view?usp=sharing" target="_blank">View Resume</a>
-            </nav>
-        </div>
+        <a href="#home" class="logo">HOME</a>
+        <button class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills-tools">Skills&Tools</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+            <a href="https://drive.google.com/file/d/1XPJOjxBV5fBi5SXkoO9J4uHeJM_0-FRk/view?usp=sharing" target="_blank">View Resume</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -201,7 +272,7 @@
                         <h3>NANDA KUMAR G</h3>
                         <p><i class="fas fa-phone"></i> <strong>Mobile:</strong> <a href="tel:+91 7795711896">+91 7795711896</a></p>
                         <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:nandakumar22197@gmail.com">nandakumar22197@gmail.com</a></p>
-                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nanda-kumar-7220972b5" target="_blank">linkedin</a></p>
+                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nanda-kumar-7220972b5" target="_blank">Click here</a></p>
                     </div>
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/nanda-kumar-7220972b5" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -230,3 +301,15 @@
     </script>
 </body>
 </html>
+
+<!-- JavaScript to toggle the menu -->
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.nav-links');
+        menu.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
+ss
